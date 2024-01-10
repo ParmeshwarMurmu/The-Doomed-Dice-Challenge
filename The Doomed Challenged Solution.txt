@@ -52,14 +52,17 @@ public class Main
 
     public static void main(String[] args) {
         
-        // PART A
- 
-        int totalCombination = calculateTotalCombination();
+         // PART A
+        
+         // Finding Out total combination possible
+         int totalCombination = calculateTotalCombination();
+       
         System.out.println("TotalCombination Possible : " + totalCombination);
         
-        // Finding outt all possible combintions
+        // All combination sum possible
         int[][] allCombinations = calculateCombinations();
-    
+         System.out.println("All Possible Combinations : ");
+        
         for(int i = 0; i<6; i++){
             for(int j=0; j<6; j++){
                   System.out.print(allCombinations[i][j] + " ");
@@ -67,14 +70,15 @@ public class Main
              System.out.println();
         }
         
-      
-        //Calculating probability
-
-        double[] allProbability = calculateProbability(allCombinations);
+        // Finding out total Probability possible
         
-        System.out.println("ALL PROBABILITIES");
+        double[] allProbability = calculateProbability(allCombinations);
+        int j=2;
+        System.out.println("All Probabilities : ");
+        
         for(int i = 0; i <allProbability.length; i++){
-            System.out.print(allProbability[i] + " ");
+            System.out.println("Probability of " + j + " is :" + allProbability[i] + " ");
+            j++;
         }
         
     }
