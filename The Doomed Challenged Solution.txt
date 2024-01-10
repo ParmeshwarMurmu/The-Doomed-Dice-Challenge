@@ -1,0 +1,81 @@
+
+import java.util.Arrays;
+
+public class Main
+{
+    // Function whic calculates total number of combination possible
+
+    public static int calculateTotalCombination(){
+        int dieAfaces = 6;
+        int dieBfaces = 6;
+        return dieAfaces * dieBfaces;
+    }
+    
+    // Function which is retuning all the sum  possible combinations
+    
+    public static int[][] calculateCombinations() {
+        int[][] combinations = new int[6][6];
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                combinations[i][j] = (i + 1) + (j + 1);
+            }
+        }
+
+        return combinations;
+    }
+
+    
+
+   //Function which calculates the probability 
+    public static double[] calculateProbability(int[][] allCombinations) {
+        double[] probability = new double[11];
+
+        for (int i = 2; i <= 12; i++) {
+            int count = 0;
+            
+           for (int rowIndex = 0; rowIndex < allCombinations.length; rowIndex++) {
+                 int[] row = allCombinations[rowIndex];
+                //  System.out.print(Arrays.toString(row));
+                 for (int colIndex = 0; colIndex < row.length; colIndex++) {
+                 int sum = row[colIndex];
+                 if (sum == i) {
+                      count++;
+                 }
+            }
+}
+            probability[i - 2] = (double) count / 36;
+        }
+
+        return probability;
+    }
+
+    public static void main(String[] args) {
+        
+        // PART A
+ 
+        int totalCombination = calculateTotalCombination();
+        System.out.println("TotalCombination Possible : " + totalCombination);
+        
+        // Finding outt all possible combintions
+        int[][] allCombinations = calculateCombinations();
+    
+        for(int i = 0; i<6; i++){
+            for(int j=0; j<6; j++){
+                  System.out.print(allCombinations[i][j] + " ");
+            }
+             System.out.println();
+        }
+        
+      
+        //Calculating probability
+
+        double[] allProbability = calculateProbability(allCombinations);
+        
+        System.out.println("ALL PROBABILITIES");
+        for(int i = 0; i <allProbability.length; i++){
+            System.out.print(allProbability[i] + " ");
+        }
+        
+    }
+}
