@@ -1,6 +1,6 @@
 # The-Doomed-Dice-Challenge
 
-## Output
+## Output And answer
 
 ## 1. Total Combination
 
